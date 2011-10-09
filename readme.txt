@@ -7,7 +7,9 @@ Stable tag: 1.1
 
 Easy to create multiple newsletters containing the blog latest posts.
 
-== Main Features ==
+== Description ==
+
+Main Features:
 1. Setup multiple newsletters according to the post categories.
 2. Different send modes include manual, weekly and monthly.
 3. Custom newsletter content, template and post count.
