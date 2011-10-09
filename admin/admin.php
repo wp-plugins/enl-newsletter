@@ -1,6 +1,6 @@
 <?php
 /* Admin functions to set and save settings of the 
- * @package PostSync
+ * @package ENL
 */
 require_once('pages.php');
 require_once('meta_box.php');
