@@ -1,14 +1,4 @@
 <?php
-function enl_newsletter_post_excerpt() {
-    global $post;
-    $output = '';
-    $output = $post->post_excerpt;
-    if ( !empty($post->post_password) ) { // if there's a password
-           $output = 'There is no excerpt because this is a protected post.';     
-    }
-    return $output;
-}
-
 function enl_newsletter_add_subscriber($email, $ip){
    global $wpdb;
    $settings = array('email' => $email, 'ip' => $ip);  
@@ -42,7 +32,6 @@ function enl_newsletter_run_campaigns($data){
     $post_excerpt = apply_filters('the_excerpt', get_the_excerpt());    
     $post_title = the_title('', '', false);
     $post_author = the_author('', false);
-    //$post_excerpt = enl_newsletter_post_excerpt();
     $post_date = get_the_date();
     $post_url = apply_filters('the_permalink', get_permalink());
     $tags = array('{TITLE}', '{AUTHOR}', '{EXCERPT}', '{DATE}', '{URL}');
