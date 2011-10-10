@@ -16,6 +16,7 @@ Easy to create multiple newsletters containing the blog latest posts.
 3. Custom newsletter content, template and post count.
 4. Newsletter signup widget for user registration. 
 5. Subscriber info list containing email, ip and registeration time. 
+6. Import wordpress users to subscriber list.
 
 **More info:**
 
@@ -40,3 +41,6 @@ Easy to create multiple newsletters containing the blog latest posts.
 
 = 1.0.0 =
 Beta release
+
+= 1.0.1 =
+Auto Import worpress subscribers

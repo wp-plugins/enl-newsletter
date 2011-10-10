@@ -1,4 +1,28 @@
 <?php
+function enl_newsletter_author_meta_box(){
+  echo "<p><a href='http://wp-coder.net'>Custom WP plugin Services</a></p>";
+  //echo "<p><a href='http://wp-coder.net/enl-newsletter'>You comments for this plugin</a></p>"; 
+  echo "<p><a href='http://wordpress.org/extend/plugins/enl-newsletter/'>Give a good rating on WordPress.org</a></p>";	
+}
+
+function enl_newsletter_import_meta_box(){
+   $enl_opts = get_option(ENL_OPTIONS);
+   $import = $enl_opts['import'];
+?>
+   <table class="form-table">
+		<tr>
+			<th class='import-settings'>
+            	<label for="import"><?php _e( 'Also send to wordpress subscribers:', 'newsletter' ); ?></label> 
+            </th>
+            <td>
+                <input type="radio" name="import" value="on" <?php if(isset($import) && $import == 'on') echo 'checked="checked"'; ?> /> On
+                <input type="radio" name="import" value="off" <?php if(isset($import) && $import == 'off') echo 'checked="checked"'; ?> /> Off
+            </td>
+		</tr>
+   </table>		
+<?php	
+}
+
 function enl_post_inner_meta_box(){
   $new = ( !isset($_GET['action']) || $_GET['action'] != 'edit' );  	
 ?>
@@ -76,7 +100,7 @@ function enl_campagins_content_meta_box(){
 ?>
    <table class="form-table">
 		<tr>
-			<th>
+			<th class='campaign'>
             	<label for="subject"><?php _e( 'Subject:', 'newsletter' ); ?></label> 
             </th>
             <td>
@@ -84,7 +108,7 @@ function enl_campagins_content_meta_box(){
             </td>
 		</tr>
 		<tr>
-			<th>
+			<th class='campaign'>
             	<label for="header"><?php _e( 'Header:', 'newsletter' ); ?></label> 
             </th>
             <td>
@@ -93,7 +117,7 @@ function enl_campagins_content_meta_box(){
 		</tr>
 		<tr></tr>
 		<tr>
-		    <th>
+		    <th class='campaign'>
             	<label for="template"><?php _e( 'Template:', 'newsletter' ); ?></label> 
              </th>
              <td>
@@ -104,7 +128,7 @@ function enl_campagins_content_meta_box(){
 		</tr>
 		<tr></tr>
 		<tr>
-		    <th>
+		    <th class='campaign'>
             	<label for="footer"><?php _e( 'Footer:', 'newsletter' ); ?></label> 
           </th>
           <td>

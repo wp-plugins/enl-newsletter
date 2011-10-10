@@ -49,9 +49,10 @@ function enl_newsletter_settings_init(){
    $enl->addnew = add_submenu_page('enl-campaigns', 'Add Campaign', 'Add Campaign', 0, 'enl-add-new', 'enl_newsletter_add_new_page');
    $enl->subscribers = add_submenu_page('enl-campaigns', 'Subscribers', 'Subscribers', 0, 'enl-subscribers', 'enl_newsletter_subscribers_page' );
    //$enl->import = add_submenu_page('enl-campaigns', 'Import/Export', 'Import/Export', 0, 'enl-import', 'enl_newsletter_import_page' );
-   //$enl->settings = add_submenu_page('enl-campaigns', 'Settings', 'Settings', 0, 'enl-settings', 'enl_newsletter_settings_page' );
+   $enl->settings = add_submenu_page('enl-campaigns', 'Settings', 'Settings', 0, 'enl-settings', 'enl_newsletter_configuration_page' );
 
    add_action( "load-{$enl->addnew}", 'enl_newsletter_add_new_settings');
+   add_action( "load-{$enl->settings}", 'enl_newsletter_configuration_settings');
 }
 
 function enl_newsletter_admin_style(){
@@ -91,6 +92,14 @@ function enl_newsletter_actions_handler(){
 	  $wpdb->query($query);
 	  $redirect = admin_url( 'admin.php?page=enl-subscribers' ); 
       wp_redirect($redirect);
+   }   
+      
+   if(isset($_POST['enl-settings'])){
+	   $enl_opts = get_option(ENL_OPTIONS);
+	   $enl_opts['import'] = $_POST['import'];
+	   update_option(ENL_OPTIONS, $enl_opts);
+	   $redirect = admin_url( 'admin.php?page=enl-settings&updated=true' ); 
+       wp_redirect($redirect);    
    }   
       
    if(isset($_POST['campaign'])){

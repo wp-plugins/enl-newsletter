@@ -1,4 +1,5 @@
-.form-table th{width:30px;}
+.form-table th.campaign{width:30px;}
+.form-table th.import-settings{width:300px;}
 .form-table td input#subject{
 	width:500px;
 	}

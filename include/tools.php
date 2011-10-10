@@ -47,10 +47,37 @@ function enl_newsletter_run_campaigns($data){
      	
    $users_table = $wpdb->prefix.'enl_users';	
    $users = $wpdb->get_results("SELECT * FROM $users_table");
-   
+
+   //send email to subscribers
    foreach($users as $user){
 	  $email = $user->email; 
 	  $result = wp_mail($email, $subject, $message);
+   }
+   
+   //also send to wordpress users
+   $enl_opts = get_option(ENL_OPTIONS);
+   if($enl_opts['import'] == 'on'){
+	  /*
+	  $users_id = $wpdb->get_col("SELECT $wpdb->users.ID FROM $wpdb->users");
+	  //get all users email list
+	  $email_list = array();
+	  foreach($users_id as $id){
+		$user = get_userdata($id);
+		$email_list[] = $user->user_email;  
+	  }	     
+	  */
+	  
+	  //get only subscriber
+	  $blogusers = get_users('role=subscriber');
+	  $email_list = array();
+	  foreach($blogusers as $user){
+		$email_list[] = $user->user_email;  
+	  }	
+	  var_dump($email_list);
+	  //send email to users
+	  foreach($email_list as $wp_email){
+	    $result = wp_mail($wp_email, $subject, $message);
+      }	  
    }
    
 }

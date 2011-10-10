@@ -1,4 +1,24 @@
 <?php
+function enl_newsletter_configuration_settings(){
+   global $enl;
+  add_meta_box( 
+             'enl-newsletter-author-meta-box'
+            ,__( 'Like this Plugin', 'newsletter' )
+            ,'enl_newsletter_author_meta_box'
+            ,$enl->settings
+            ,'author'
+            ,'high'
+        );
+  add_meta_box( 
+             'enl-newsletter-import-meta-box'
+            ,__( 'Import wordpress subscribers', 'newsletter' )
+            ,'enl_newsletter_import_meta_box'
+            ,$enl->settings
+            ,'import'
+            ,'high'
+        );	
+}
+
 function enl_newsletter_add_new_settings(){
   global $enl;
   add_meta_box( 
@@ -137,5 +157,36 @@ function enl_newsletter_subscribers_page(){
 
 function enl_newsletter_import_page(){}
 
-function enl_newsletter_settings_page(){}
+function enl_newsletter_configuration_page(){
+global $enl;
+?>
+  <div class="wrap">
+		
+        <?php if ( function_exists( 'screen_icon' ) ) screen_icon(); ?>
+        
+		<h2><?php _e( 'Settings', 'newsletter' ); ?></h2>
+        <?php if ( isset( $_GET['updated'] ) && 'true' == esc_attr( $_GET['updated'] ) && !empty($_GET['id']) ) enl_newsletter_update_message(); ?>
+        <?php //if ( is_null( $_GET['update'] ) && !empty($_GET['id']) ) enl_newsletter_create_message(); ?>
+		     
+        <form id="settings" method="post">
+		<input name="action" value="settings" type="hidden">
+		<div id="poststuff" class="metabox-holder has-right-sidebar">			               
+				<div id="side-info-column" class="inner-sidebar">
+					<div id="side-sortables" class="meta-box-sortables">
+				   	 <?php do_meta_boxes( $enl->settings, 'author', $plugin_data ); ?>				   	 
+				    </div>
+				</div>	
+				<div id="post-body">
+				   <div id="post-body-content">
+				       <?php do_meta_boxes( $enl->settings, 'import', $plugin_data ); ?>	   
+				   </div><!-- #post-body-content -->
+				</div><!-- post-body -->
+									
+		</div><!-- #poststuff -->
+		<br class="clear">
+        <input class="button button-primary" type="submit" value="<?php _e('Save'); ?>" name="enl-settings" />
+        </form>
+	</div><!-- .wrap -->  
+<?php		  	
+}
 ?>

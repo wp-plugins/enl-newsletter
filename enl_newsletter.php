@@ -3,7 +3,7 @@
  * Plugin Name: ENL Newsletter
  * Plugin URI: http://wp-coder.net
  * Description: Easy to create multiple newsletters containing the blog latest posts.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Darell Sun
  * Author URI:  http://wp-coder.net
  *
@@ -25,16 +25,17 @@ register_deactivation_hook(__FILE__, 'enl_newsletter_deactivation');
 
 function enl_newsletter_activation()
 {
-	$en_opts = get_option(EN_OPTIONS);
-	if(!empty($en_opts)){
-	   $en_opts['version'] = EN_VERSION;
-	   update_option(EN_OPTIONS, $en_opts); 	
+	$enl_opts = get_option(ENL_OPTIONS);
+	if(!empty($enl_opts)){
+	   $enl_opts['version'] = ENL_VERSION;
+	   update_option(ENL_OPTIONS, $enl_opts); 	
 	}else{
 	   $opts = array(
-		'version' => EN_VERSION				
+		'version' => ENL_VERSION,
+		'import' => 'off'				
 	  );
 	  // add the configuration options
-	  add_option(EN_OPTIONS, $opts);   	
+	  add_option(ENL_OPTIONS, $opts);   	
 	}	
 	
 	
