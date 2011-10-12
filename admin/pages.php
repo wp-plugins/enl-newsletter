@@ -165,7 +165,7 @@ global $enl;
         <?php if ( function_exists( 'screen_icon' ) ) screen_icon(); ?>
         
 		<h2><?php _e( 'Settings', 'newsletter' ); ?></h2>
-        <?php if ( isset( $_GET['updated'] ) && 'true' == esc_attr( $_GET['updated'] ) && !empty($_GET['id']) ) enl_newsletter_update_message(); ?>
+        <?php if ( isset( $_GET['updated'] ) && 'true' == esc_attr( $_GET['updated'] ) ) enl_newsletter_update_message(); ?>
         <?php //if ( is_null( $_GET['update'] ) && !empty($_GET['id']) ) enl_newsletter_create_message(); ?>
 		     
         <form id="settings" method="post">
