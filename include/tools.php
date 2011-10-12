@@ -41,8 +41,8 @@ function enl_newsletter_run_campaigns($data){
    
    // Reset Post Data
    wp_reset_postdata();
-   
-   $message = $data->email_header . $content . $data->email_footer;   
+   $brand = '<br /><br />----<br />Powder by <a href="http://wp-coder.net">WP-Coder.net</a>';
+   $message = $data->email_header . $content . $data->email_footer . $brand;   
    $message = stripslashes($message);
      	
    $users_table = $wpdb->prefix.'enl_users';	
@@ -73,7 +73,7 @@ function enl_newsletter_run_campaigns($data){
 	  foreach($blogusers as $user){
 		$email_list[] = $user->user_email;  
 	  }	
-	  var_dump($email_list);
+	  
 	  //send email to users
 	  foreach($email_list as $wp_email){
 	    $result = wp_mail($wp_email, $subject, $message);
