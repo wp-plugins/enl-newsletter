@@ -1,7 +1,7 @@
 <?php
 function enl_newsletter_author_meta_box(){
   echo "<p><a href='http://wp-coder.net'>Custom WP plugin Services</a></p>";
-  //echo "<p><a href='http://wp-coder.net/enl-newsletter'>You comments for this plugin</a></p>"; 
+  echo "<p><a href='http://wp-coder.net/enl-newsletter'>Leave you comments for this plugin</a></p>"; 
   echo "<p><a href='http://wordpress.org/extend/plugins/enl-newsletter/'>Give a good rating on WordPress.org</a></p>";	
 }
 
