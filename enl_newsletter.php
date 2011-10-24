@@ -16,9 +16,9 @@ require_once('include/tools.php');
 /* Set up the plugin. */
 add_action('plugins_loaded', 'enl_newsletter_setup');  
 //add cron intervals
-    add_filter('cron_schedules', 'enl_newsletter_intervals');
-	//Actions for Cron job
-	add_action('enl_newsletter_cron', 'enl_newsletter_cron_hook');
+add_filter('cron_schedules', 'enl_newsletter_intervals');
+//Actions for Cron job
+add_action('enl_newsletter_cron', 'enl_newsletter_cron_hook');
 /* Create table when admin active this plugin*/
 register_activation_hook(__FILE__,'enl_newsletter_activation');
 register_deactivation_hook(__FILE__, 'enl_newsletter_deactivation');
@@ -65,11 +65,13 @@ function enl_newsletter_cron_hook(){
 		   	case 'weekly':
 		   	   $next_week = time() + (7 * 24 * 60 * 60);
 		   	   $settings['next_run'] = $next_week;
+		   	   $settings['last_run'] = time();
 		   	   $where = array('id' => $entry->id); 
                $wpdb->update($wpdb->prefix.'enl_newsletter', $settings, $where);
 		   	case 'monthly':
 		   	   $next_month = time() + (7 * 24 * 60 * 60);
 		   	   $settings['next_run'] = $next_month;
+		   	   $settings['last_run'] = time();
 		   	   $where = array('id' => $entry->id); 
                $wpdb->update($wpdb->prefix.'enl_newsletter', $settings, $where);
 		 }
