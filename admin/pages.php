@@ -1,6 +1,14 @@
 <?php
 function enl_newsletter_configuration_settings(){
    global $enl;
+   add_meta_box( 
+             'enl-newsletter-other-meta-box'
+            ,__( 'By the same Author', 'newsletter' )
+            ,'enl_newsletter_other_meta_box'
+            ,$enl->settings
+            ,'other'
+            ,'high'
+        );  
   add_meta_box( 
              'enl-newsletter-author-meta-box'
             ,__( 'Like this Plugin', 'newsletter' )
@@ -173,6 +181,7 @@ global $enl;
 		<div id="poststuff" class="metabox-holder has-right-sidebar">			               
 				<div id="side-info-column" class="inner-sidebar">
 					<div id="side-sortables" class="meta-box-sortables">
+					 <?php do_meta_boxes( $enl->settings, 'other', $plugin_data ); ?>	
 				   	 <?php do_meta_boxes( $enl->settings, 'author', $plugin_data ); ?>				   	 
 				    </div>
 				</div>	
