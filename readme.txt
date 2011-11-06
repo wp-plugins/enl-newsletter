@@ -21,7 +21,7 @@ Easy to create multiple newsletters containing the blog latest posts.
 **More info:**
 
 * [Leave a comment](http://www.wp-coder.net/enl-newsletter/)
-* Find out more great [WordPress plugins](http://www.wp-coder.net/)
+* Find out more great [WordPress plugins](http://plugins.wp-coder.net/)
 
 == Installation ==
 
