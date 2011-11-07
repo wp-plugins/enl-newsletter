@@ -44,12 +44,12 @@ function enl_newsletter_tinymce(){
 
 function enl_newsletter_settings_init(){
    global $enl;
-   add_menu_page('Newsletter', 'Newsletter', 0, 'enl-campaigns', 'enl_newsletter_campaigns_page' ); 
-   $enl->campaings = add_submenu_page('enl-campaigns', 'Campaigns', 'Campaigns', 0, 'enl-campaigns', 'enl_newsletter_campaigns_page' );
-   $enl->addnew = add_submenu_page('enl-campaigns', 'Add Campaign', 'Add Campaign', 0, 'enl-add-new', 'enl_newsletter_add_new_page');
-   $enl->subscribers = add_submenu_page('enl-campaigns', 'Subscribers', 'Subscribers', 0, 'enl-subscribers', 'enl_newsletter_subscribers_page' );
-   //$enl->import = add_submenu_page('enl-campaigns', 'Import/Export', 'Import/Export', 0, 'enl-import', 'enl_newsletter_import_page' );
-   $enl->settings = add_submenu_page('enl-campaigns', 'Settings', 'Settings', 0, 'enl-settings', 'enl_newsletter_configuration_page' );
+   add_menu_page('Newsletter', 'Newsletter', 'manage_options', 'enl-campaigns', 'enl_newsletter_campaigns_page' ); 
+   $enl->campaings = add_submenu_page('enl-campaigns', 'Campaigns', 'Campaigns', 'manage_options', 'enl-campaigns', 'enl_newsletter_campaigns_page' );
+   $enl->addnew = add_submenu_page('enl-campaigns', 'Add Campaign', 'Add Campaign', 'manage_options', 'enl-add-new', 'enl_newsletter_add_new_page');
+   $enl->subscribers = add_submenu_page('enl-campaigns', 'Subscribers', 'Subscribers', 'manage_options', 'enl-subscribers', 'enl_newsletter_subscribers_page' );
+   //$enl->import = add_submenu_page('enl-campaigns', 'Import/Export', 'Import/Export', 'manage_options', 'enl-import', 'enl_newsletter_import_page' );
+   $enl->settings = add_submenu_page('enl-campaigns', 'Settings', 'Settings', 'manage_options', 'enl-settings', 'enl_newsletter_configuration_page' );
 
    add_action( "load-{$enl->addnew}", 'enl_newsletter_add_new_settings');
    add_action( "load-{$enl->settings}", 'enl_newsletter_configuration_settings');
