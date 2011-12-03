@@ -20,6 +20,7 @@ Easy to create multiple newsletters containing the blog latest posts.
 
 **More info:**
 
+* [Custom Wordpress plugin Services](http://wp-coder.net/)
 * [Leave a comment](http://www.wp-coder.net/enl-newsletter/)
 * Find out more great [WordPress plugins](http://plugins.wp-coder.net/)
 
