@@ -5,6 +5,7 @@ function enl_newsletter_author_meta_box(){
   echo "<p><a href='http://wordpress.org/extend/plugins/enl-newsletter/'>Give a good rating on WordPress.org</a></p>";	
 }
 function enl_newsletter_other_meta_box(){
+  echo "<p><a href='http://codecanyon.net/item/comment-to-access/1009014'>comment to acess</a></p>";
   echo "<p><a href='http://plugins.wp-coder.net/purchase/wp-rss-poster/'>WP RSS Poster</a></p>";
   echo "<p><a href='http://wordpress.org/extend/plugins/post-sync/'>WP post sync</a></p>";   
 }
