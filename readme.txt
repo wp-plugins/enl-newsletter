@@ -20,8 +20,6 @@ Easy to create multiple newsletters containing the blog latest posts.
 
 **More info:**
 
-* [WP comment to access plugin](http://codecanyon.net/item/comment-to-access/1009014)
-* [Custom Wordpress plugin Services](http://wp-coder.net/)
 * [Leave a comment](http://www.wp-coder.net/enl-newsletter/)
 
 == Installation ==
